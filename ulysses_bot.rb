@@ -119,6 +119,9 @@ first_key << "of all"
 first_key << word_pairs_and_probabilities["of all"].sample
 first_triplet = first_key.join(' ').split(' ')
 
+bot_output = []
+bot_output << first_triplet.join(' ')
+
 puts first_triplet.join(' ')
 
 next_chain = first_triplet[1] + ' ' + first_triplet[2]
@@ -128,16 +131,23 @@ def continue(argument, thing)
   foo_key << thing
   foo_key << argument[thing].sample
   foo_phrase = foo_key.join(' ').split(' ')
-  puts foo_phrase.join(' ')
+  puts foo_phrase[-1]
   iterative_chain = foo_phrase[-2] + ' ' + foo_phrase[-1]
   return iterative_chain
 end
 
+
 zarg = continue(word_pairs_and_probabilities, next_chain)
 
-10.times do
-  continue(word_pairs_and_probabilities, zarg)
+100.times do
+  if nil
+    break
+  else
+    zarg = continue(word_pairs_and_probabilities, zarg)
+  end
 end
+
+puts bot_output.to_s
 
 #initial_triplet = []
 #initial_triplet << word_pairs_and_probabilities.keys[0]
