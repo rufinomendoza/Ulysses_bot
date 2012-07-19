@@ -53,11 +53,8 @@ end
 
 zarg = continue(word_pairs_and_probabilities, next_chain)
 
-1000.times do
-  if nil # still need to fix this
-    break
-  else
-    zarg = continue(word_pairs_and_probabilities, zarg)
+100.times do
+  if zarg && zarg = continue(word_pairs_and_probabilities, zarg)
     fubar = zarg
     last = fubar.split(' ')[-1]
     bot_output << last
