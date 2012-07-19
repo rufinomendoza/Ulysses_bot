@@ -53,7 +53,7 @@ end
 
 zarg = continue(word_pairs_and_probabilities, next_chain)
 
-100.times do
+10000.times do
   if zarg && zarg = continue(word_pairs_and_probabilities, zarg)
     fubar = zarg
     last = fubar.split(' ')[-1]
