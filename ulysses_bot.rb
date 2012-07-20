@@ -4,15 +4,15 @@
 
 require 'open-uri'
 
-source_text = []
+source_text = ""
 
 open("http://www.gutenberg.org/files/4300/4300-h/4300-h.htm") do |f|
   f.each_line do |line|
-    source_text << line
+    source_text += line
   end
 end
 
-source_text = source_text.to_s
+source_text = source_text
 
 
 source_text_words = source_text.split(' ')
