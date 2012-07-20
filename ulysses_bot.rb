@@ -12,9 +12,6 @@ open("http://www.gutenberg.org/files/4300/4300-h/4300-h.htm") do |f|
   end
 end
 
-source_text = source_text
-
-
 source_text_words = source_text.split(' ')
 word_pairs_and_probabilities = {}
 
