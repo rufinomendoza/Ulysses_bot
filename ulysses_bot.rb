@@ -25,13 +25,10 @@ class LitBot
   end
 
   def markov
-    output_text = []
-    output_text << @word_pairs_and_probabilities.keys.sample.split(' ')
-
-    puts output_text
-
+    output_text = @word_pairs_and_probabilities.keys.sample.split(' ')
+    
     story = 0
-    while story < 10 do
+    while story < 50 do
       word_pair = output_text.last(2).join(' ')
       next_word = @word_pairs_and_probabilities[word_pair].sample unless @word_pairs_and_probabilities[word_pair].nil?
       output_text << next_word
@@ -53,14 +50,17 @@ bender.eat_file("huckle.txt")
 bender.speak_first_10_words # an example call
 bender.digest_file
 bender.markov
-bender.speak
+#bender.speak
+
+puts ''
 
 ulysses_bot = LitBot.new
 ulysses_bot.eat_file("ulysses.txt")
 ulysses_bot.speak_first_10_words # an example call
 ulysses_bot.digest_file
 ulysses_bot.markov
-ulysses_bot.speak
+#ulysses_bot.speak
+
 
 # BONUS HW
 # hybrid_bot = ulysses_bot + bender
@@ -84,3 +84,17 @@ ulysses_bot.speak
 # end
 
 # # puts word_pairs_and_probabilities
+
+#Rufino Version markov
+#  def markov
+#    output_text = @word_pairs_and_probabilities.keys.sample.split(' ')
+    
+#    1000.times do
+#    word_pair = output_text.last(2).join(' ')
+#    next_word = @word_pairs_and_probabilities[word_pair].sample unless @word_pairs_and_probabilities[word_pair].nil?
+#      if next_word &&
+#        output_text << next_word
+#      end
+#    end
+#    puts output_text.join(' ')
+#  end
