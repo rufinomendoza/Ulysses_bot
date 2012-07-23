@@ -28,7 +28,7 @@ class LitBot
     output_text = []
     output_text << @word_pairs_and_probabilities.keys.sample.split(' ')
 
-    puts output_text.join(' ')
+    puts output_text
 
     story = 0
     while story < 10 do
